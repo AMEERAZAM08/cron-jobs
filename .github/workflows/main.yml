@@ -1,7 +1,7 @@
 name: Run CI/CD Pipeline
 
 on:
-  workflow_dispatch: # Allows external/manual triggers
+  workflow_dispatch:  # Allows external/manual triggers
 
 jobs:
   deploy:
