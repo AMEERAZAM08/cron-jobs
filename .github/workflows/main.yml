@@ -1,0 +1,25 @@
+name: Push to Hugging Face
+
+on:
+  schedule:
+    - cron: "*/1 * * * *" # Runs every minute (smallest interval in GitHub Actions)
+
+jobs:
+  push-to-huggingface:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.9"
+
+      # Install Hugging Face CLI
+      - name: Install Hugging Face CLI
+        run: |
+          pip install huggingface-hub
