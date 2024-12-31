@@ -1,0 +1,33 @@
+name: Auto Deploy Every Minute
+
+on:
+  schedule:
+    - cron: "* * * * *"  # Runs every minute
+# Optional: Trigger manually or on push to certain branches
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up the required environment (e.g., Node.js, Python)
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      # Step 3: Install dependencies (if needed)
+      - name: Install Dependencies
+        run: npm install
+
+      # Step 4: Run your deployment command
+      - name: Deploy Code
+        run: npm run deploy  # Replace with your actual deployment command
