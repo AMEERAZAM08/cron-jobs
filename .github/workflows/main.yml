@@ -2,7 +2,7 @@ name: Push to Hugging Face
 
 on:
   schedule:
-    - cron: "*/1 * * * *" # Runs every minute (smallest interval in GitHub Actions)
+    - cron: "* * * * *" # Runs every minute (smallest interval in GitHub Actions)
 
 jobs:
   push-to-huggingface:
